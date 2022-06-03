@@ -1,0 +1,32 @@
+SUBROUTINE V.VALIDATE.RTN
+*-----------------------------------------------------------------------------
+*
+*-----------------------------------------------------------------------------
+* Modification History :
+*-----------------------------------------------------------------------------
+
+*-----------------------------------------------------------------------------
+    $INSERT I_COMMON
+    $INSERT I_EQUATE
+    $INSERT I_F.ACCOUNT
+    $INSERT I_F.FUNDS.TRANSFER
+
+
+
+    FN.ACCOUNT='F.ACCOUNT'
+    F.ACCOUNT=''
+    CALL OPF(FN.ACCOUNT,F.ACCOUNT)
+
+
+
+    ACCOUNT.ID=COMI
+    CALL F.READ(FN.ACCOUNT,ACCOUNT.ID,R.ACCOUNT,F.ACCOUNT,READ.ERROR)
+
+
+
+    R.NEW(FT.DEBIT.CURRENCY)=R.ACCOUNT<AC.CURRENCY>
+
+
+
+
+END
